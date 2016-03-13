@@ -19,7 +19,7 @@
         every meassure line. Meassure lines may have more than a sinle point
  '''
 
-import pySVG
+import mySVG
 import numpy as np
 from math import *
 
@@ -30,7 +30,7 @@ refLineColor = '#0000ff'    #Blue
 
 # Open svg file
 fileName = '../ENC01/ENC01.svg'
-svg = pySVG.svg(fileName)
+svg = mySVG.svg(fileName)
 
 # Get lines and properties 
 #(Choose only paths contained in layers directly dependent of the svg tag)
@@ -40,7 +40,7 @@ for path in svgPaths:
     pathAttributes = svg.get_attrib(path)
     
     lines.append( {'element':path,
-                   'points': pySVG.get_pathPoints( pathAttributes['d'] ),
+                   'points': mySVG.get_pathPoints( pathAttributes['d'] ),
                    'id': pathAttributes['id'],
                    'style' : pathAttributes['style']} )
                    
