@@ -1,5 +1,5 @@
 '''
-    - pySVG.py -
+    - mySVG.py -
     Author: Carlos Rubio Abujas <oldsphere@gmail.com>
     Date: 03/03/2016
     Description:
