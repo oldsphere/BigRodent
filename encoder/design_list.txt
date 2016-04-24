@@ -1,0 +1,45 @@
+- BigRodent - 
+Last update: 24/042016
+Content:
+  List of the tested Encoder designs.
+  
+ENC00
+  Description: Old version. 
+  Manufacture method: Machined 
+  Material: Unknown
+  Edge adjustment: Nuts over screw edge (legacy)
+  Comments:
+    Circular and irregular pulses
+    
+ENC01
+  Description: n/a
+  Manufacture method: 3D printed
+  Material: ABS-White, Silver paint coverage.
+  Edge Adjustment: Screw
+  Comments:
+    Irregular pulses. ABS-White is transparent to IR light, painting is required.
+  
+ENC02 
+  Description: n/a
+  Manufacture method: 3D printed
+  Material: ABS-Silver
+  Edge Adjustment: Interference
+  Comments:
+    Irregular pulses, Curved base
+    
+ENC03
+  Description:
+  Manufacture method: 3D printed
+  Material: ABS-Silver
+  Edge Adjustment: Screw
+  Comments:
+    Irregular pulses
+    
+ENC04
+  Description:
+  Manufacture method: 3D printed
+  Material: ABS-Silver
+  Edge Adjustment: Interference (I.D 6.6mm)
+  Comments:
+    Central ring aumented to increase rigidity. 
+  
