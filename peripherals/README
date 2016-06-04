@@ -1,0 +1,13 @@
+BigRodent
+Date: 04/06/2016
+
+Folder content:
+This folder contains the code and files related to the control of peripherals.
+
+Peripherals are understood as the followind devices:
+  - SD Card (Storing)
+  - Temperature & Humidity (Sensor)
+  - PIR Movement sensor (Sensor)
+  - Real Time Clock ( Time )
+  
+
