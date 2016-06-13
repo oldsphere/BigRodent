@@ -20,7 +20,7 @@ void createFolder() {
     char folderName[10];
     SdFile newFolder;
 
-    getFolderName_test(folderName);
+    getFolderName(folderName);
 
     if (existFolder(folderName)) {
       return;
@@ -48,7 +48,7 @@ void updateReport(char* line) {
     SdFile folder;
 
     // Ensures the folder exists.
-    getFolderName_test(folderName);
+    getFolderName(folderName);
     if (!existFolder(folderName)) { 
         Serial.print("Folder \"");
         Serial.print(folderName);

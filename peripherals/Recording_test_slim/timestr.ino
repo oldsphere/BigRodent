@@ -8,8 +8,6 @@
  *    <tbd>
  */ 
 
-
-
 void getMonthName(DateTime date, char* strMonth) {
 // Return the name of the month given the timestamp.
     switch(date.month())
@@ -33,45 +31,22 @@ void getMonthName(DateTime date, char* strMonth) {
 void getFolderName(char* folderName) {
   char monthName[4]; 
   if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
-  }
-  else {
-    DateTime now = RTC.now(); 
-    getMonthName(now, monthName);
-    sprintf(folderName, "%s%04d", monthName, now.year() );
-  }
-}
-
-void getFileName(char *fileName) {
-  if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
-  }
-  else {
-    DateTime now = RTC.now(); 
-    sprintf(fileName, "DAY%02d.dat", now.day() );
-  }
-}
-
-void getFileName_test(char *fileName) {
-  if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
-  }
-  else {
-    DateTime now = RTC.now(); 
-    sprintf(fileName, "DAY%02d.csv", now.hour() );
-  }
-}
-
-
-void getFolderName_test(char* folderName) {
-  char monthName[4]; 
-  if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
+    Serial.println(F("Error while running RTC"));
   }
   else {
     DateTime now = RTC.now(); 
     getMonthName(now, monthName);
     sprintf(folderName, "%s%02d", monthName, now.day() );
+  }
+}
+
+void getFileName(char *fileName) {
+  if(!RTC.isrunning()){
+    Serial.println(F("Error while running RTC"));
+  }
+  else {
+    DateTime now = RTC.now(); 
+    sprintf(fileName, "DAY%02d.csv", now.hour() );
   }
 }
 
@@ -99,7 +74,7 @@ void printTime(DateTime date) {
 
 void printNow(){
   if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
+    Serial.println(F("Error while running RTC"));
   }
   else {
     DateTime now = RTC.now(); 
@@ -109,6 +84,3 @@ void printNow(){
     Serial.print(" - ");
   }
 }
-
-
-

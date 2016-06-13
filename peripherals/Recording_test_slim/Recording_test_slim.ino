@@ -11,8 +11,9 @@
 #include <Wire.h>
 #include <SD.h>
 #include <SPI.h>
-#include "RTClib.h"
 #include "DHT.h"
+#include "RTClib.h"
+
 
 #define DHTPIN A3
 #define SD_PIN 4
@@ -28,54 +29,54 @@ void setup () {
 
   Serial.begin(9600); // Establece la velocidad de datos del puerto serie
   
-  Serial.print("Initiating I2C comunication...");
+  Serial.print(F("Initiating I2C comunication..."));
   Wire.begin(); // Inicia el puerto I2C 
-  Serial.println("OK");
+  Serial.println(F("OK"));
 
-  Serial.print("Initiating RTC...");
+  Serial.print(F("Initiating RTC..."));
   while(!RTC.begin()) {} // Inicia la comunicación con el RTC
-  Serial.println("OK");
+  Serial.println(F("OK"));
 
   if (adjutTime) {
-   Serial.print("Adjusting time...");
+   Serial.print(F("Adjusting time..."));
    RTC.adjust(DateTime(__DATE__, __TIME__));
-   Serial.println("OK");
+   Serial.println(F("OK"));
   }
 
-  Serial.print("Initiating SD...");
+  Serial.print(F("Initiating SD..."));
 
   Sd2Card card;
   SdVolume volume;   
   pinMode(10,OUTPUT); 
   if (!card.init(SPI_HALF_SPEED, SD_PIN)) {
-    Serial.println("FAIL");
-    Serial.println("SD not found!"); 
+    Serial.println(F("FAIL"));
+    Serial.println(F("SD not found!")); 
     while (true) {}
   }
   else {
     if (!volume.init(card)) {
-      Serial.println("FAIL");
-      Serial.println("Could not find FAT16/FAT32 partition.\nMake sure you've formatted the card");
+      Serial.println(F("FAIL"));
+      Serial.println(F("Could not find FAT16/FAT32 partition.\nMake sure you've formatted the card"));
       while (true) {}
     }
     
     root.openRoot(volume);
-    Serial.println("OK");
+    Serial.println(F("OK"));
   }
   
-  Serial.print("Initiating DHT sensor...");
+  Serial.print(F("Initiating DHT sensor..."));
   dht.begin();
-  Serial.println("OK");
+  Serial.println(F("OK"));
 
   // End starting report
-  Serial.println("-----------------------------------------------------------");
+  Serial.println(F("-----------------------------------------------------------"));
   Serial.println("");
 }
 
 
 void loop(){
-  char line[100];
-
+  char line[60];
+  
   getReportLine(line);
   updateReport(line);
  

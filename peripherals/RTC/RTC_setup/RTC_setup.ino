@@ -7,7 +7,7 @@
 //Inicializa objetos
 RTC_DS1307 RTC;
 
-boolean adjutTime = true;
+boolean adjutTime = false;
 
 void setup () {
   
@@ -19,11 +19,10 @@ void setup () {
   Serial.println("RTC initialized!");
   
 
- 
-//  if (adjutTime) {
-//    RTC.adjust(DateTime(__DATE__, __TIME__)); 
-//    Serial.println("Time adjusted!!");
-//  }
+  if (adjutTime) {
+   RTC.adjust(DateTime(__DATE__, __TIME__)); 
+    Serial.println("Time adjusted!!");
+  }
 }
 
 

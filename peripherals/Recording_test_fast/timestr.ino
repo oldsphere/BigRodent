@@ -30,17 +30,6 @@ void getMonthName(DateTime date, char* strMonth) {
     }
  }
 
-void getFolderName(char* folderName) {
-  char monthName[4]; 
-  if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
-  }
-  else {
-    DateTime now = RTC.now(); 
-    getMonthName(now, monthName);
-    sprintf(folderName, "%s%04d", monthName, now.year() );
-  }
-}
 
 void getFileName(char *fileName) {
   if(!RTC.isrunning()){
@@ -48,33 +37,20 @@ void getFileName(char *fileName) {
   }
   else {
     DateTime now = RTC.now(); 
-    sprintf(fileName, "DAY%02d.dat", now.day() );
+    sprintf(fileName, "HR%02d.csv", now.hour() );
   }
 }
 
-void getFileName_test(char *fileName) {
-  if(!RTC.isrunning()){
-    Serial.println("Error while running RTC");
-  }
-  else {
-    DateTime now = RTC.now(); 
-    sprintf(fileName, "DAY%02d.csv", now.hour() );
-  }
-}
-
-
-void getFolderName_test(char* folderName) {
+void getFolderName(char* folderName) {
   char monthName[4]; 
   if(!RTC.isrunning()){
     Serial.println("Error while running RTC");
   }
   else {
     DateTime now = RTC.now(); 
-    getMonthName(now, monthName);
-    sprintf(folderName, "%s%02d", monthName, now.day() );
+    sprintf(folderName, "DAY%04d",  now.day() );
   }
 }
-
 
 void getDate(DateTime date, char* strDate) {
 //   Return the date in a string format.
